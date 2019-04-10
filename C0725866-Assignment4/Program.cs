@@ -49,7 +49,7 @@ namespace ConsoleApp1
                     a = 0;
 
                 }
-                
+
 
                 Console.WriteLine("\n\n\n\n********************************The number of lines in the paragraph is " + counter);
                 Console.WriteLine("The number of words in paragraph is " + myWord);
@@ -59,9 +59,9 @@ namespace ConsoleApp1
         }
         public int FindNumberOfBlankSpaces(string line)
         {
-            
 
-            foreach(char c in line)
+
+            foreach (char c in line)
             {
                 if (char.IsLetter(c)) { counterletters++; }
                 if (char.IsWhiteSpace(c)) { countSpaces++; }
