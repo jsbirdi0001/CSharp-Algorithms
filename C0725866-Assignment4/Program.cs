@@ -31,6 +31,9 @@ namespace ConsoleApp1
                 int counter = 0;
                 int a = 0, myWord = 1;
                 int averageLetterPerWord;
+                ArrayList lineNumbers = new ArrayList();
+                int linenum = 1;
+                lineNumbers.Add(22);
 
                 while ((line = sr.ReadLine()) != null)
                 {
@@ -39,6 +42,12 @@ namespace ConsoleApp1
                     FindNumberOfBlankSpaces(line);
                     counter++;
 
+                    if (line.Substring(0).Contains("Sea") || line.Substring(0).Contains("sea") && line.Substring(0).Contains("Fare") || line.Substring(0).Contains("fare"))
+                    {
+                        lineNumbers.Add(linenum);
+                    }
+
+                    // COUNTING THE NUMBER OF WORDS  SECTION B
                     while (a <= line.Length - 1)
                     {
                         if (line[a] == ' ' || line[a] == '\n' || line[a] == '\t')
@@ -49,13 +58,23 @@ namespace ConsoleApp1
                     }
                     a = 0;
 
+                    linenum++;  // SECTION C
                 }
-
+                // COUNTING THE NUMBER OF AVERAGE LETTERS IN WORD SECTION E
                 averageLetterPerWord = counterletters / countSpaces;
 
+                // SECTION A: NUMBER OF LINES
                 Console.WriteLine("\n\n\n\n********************************\nThe number of lines in the paragraph is " + counter);
                 Console.WriteLine("The number of words in paragraph is " + myWord);
                 Console.WriteLine("The number of average letters per word is  " + averageLetterPerWord);
+
+
+                // SECTION C: WORDS WHICH CONTAINS BOTH SEA AND FARE
+                Console.WriteLine("The line which contains both sea and fare\n");
+                foreach (int i in lineNumbers)
+                {
+                    Console.Write(i + " ");
+                }
                 Console.ReadLine();
             }
 
