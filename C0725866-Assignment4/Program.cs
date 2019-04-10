@@ -32,8 +32,11 @@ namespace ConsoleApp1
                 {
                     Console.WriteLine(line);
                     Beowulf.Add(line);
+                    counter++;
                 }
-                
+
+                Console.WriteLine("\n\n\n\n********************************The number of lines in the paragraph is " + counter);
+                Console.ReadLine();
             }
 
         }
