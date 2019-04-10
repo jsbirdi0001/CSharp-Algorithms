@@ -30,8 +30,9 @@ namespace ConsoleApp1
                 string line;
                 int counter = 0;
                 int a = 0, myWord = 1;
-                int averageLetterPerWord;
+                float averageLetterPerWord;
                 ArrayList lineNumbers = new ArrayList();
+                ArrayList lineNumbers2 = new ArrayList();
                 int linenum = 1;
                 lineNumbers.Add(22);
 
@@ -42,9 +43,20 @@ namespace ConsoleApp1
                     FindNumberOfBlankSpaces(line);
                     counter++;
 
+                    // SECTION C
                     if (line.Substring(0).Contains("Sea") || line.Substring(0).Contains("sea") && line.Substring(0).Contains("Fare") || line.Substring(0).Contains("fare"))
                     {
                         lineNumbers.Add(linenum);
+                    }
+
+                    // SECTION D
+                    if (line.Substring(0).Contains("fare") || line.Substring(0).Contains("Fare"))
+                    {
+                        if (!(line.Substring(0).Contains("war") || line.Substring(0).Contains("War")))
+                        {
+                            lineNumbers2.Add(linenum);
+                        }
+                        
                     }
 
                     // COUNTING THE NUMBER OF WORDS  SECTION B
@@ -75,6 +87,14 @@ namespace ConsoleApp1
                 {
                     Console.Write(i + " ");
                 }
+
+                // SECTION C: WORDS WHICH CONTAINS BOTH SEA AND FARE
+                Console.WriteLine("The line which contains Fare, but not War\n");
+                foreach (int i in lineNumbers2)
+                {
+                    Console.Write(i + " ");
+                }
+
                 Console.ReadLine();
             }
 
